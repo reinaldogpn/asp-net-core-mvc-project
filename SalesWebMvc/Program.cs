@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SalesWebMvc.Data;
+using SalesWebMvc.Services;
 namespace SalesWebMvc
 {
     public class Program
@@ -13,8 +14,9 @@ namespace SalesWebMvc
                 new MySqlServerVersion(new Version("8.0.2")),
                 builder => builder.MigrationsAssembly("SalesWebMvc")));
 
-            // Register SeedingService
+            // Register created services
             builder.Services.AddScoped<SeedingService>();
+            builder.Services.AddScoped<SellerService>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
