@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap-darkly.min.css" />
     <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap_darkly.css" />
   </ItemGroup>
 
