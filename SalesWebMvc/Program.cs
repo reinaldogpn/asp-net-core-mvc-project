@@ -13,6 +13,9 @@ namespace SalesWebMvc
                 new MySqlServerVersion(new Version("8.0.2")),
                 builder => builder.MigrationsAssembly("SalesWebMvc")));
 
+            // Register SeedingService
+            builder.Services.AddScoped<SeedingService>();
+
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -28,6 +31,13 @@ namespace SalesWebMvc
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            using (var scope = app.Services.CreateScope())
+            {
+                SeedingService seedingService = scope.ServiceProvider.GetRequiredService<SeedingService>();
+                // Chamar o método do serviço
+                seedingService.Seed();
+            }
 
             app.UseRouting();
 
