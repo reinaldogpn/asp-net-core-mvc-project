@@ -14,16 +14,16 @@ namespace SalesWebMvc
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddDbContext<SalesWebMvcContext>(
                 options => options.UseMySql(builder.Configuration.GetConnectionString("SalesWebMvcContext"),
-                new MySqlServerVersion(new Version("8.0.2")),
+                ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("SalesWebMvcContext")),
                 builder => builder.MigrationsAssembly("SalesWebMvc")));
+
+            // Add services to the container.
+            builder.Services.AddControllersWithViews();
 
             // Register created services
             builder.Services.AddScoped<SeedingService>();
             builder.Services.AddScoped<SellerService>();
             builder.Services.AddScoped<DepartmentService>();
-
-            // Add services to the container.
-            builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
 
