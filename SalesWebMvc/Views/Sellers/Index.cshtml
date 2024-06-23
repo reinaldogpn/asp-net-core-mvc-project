@@ -26,8 +26,6 @@
                 @Html.DisplayNameFor(model => model.BaseSalary)
             </th>
             <th></th>
-            <th></th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -48,11 +46,7 @@
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                </td>
-                <td>
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                </td>
-                <td>
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
