@@ -18,3 +18,9 @@ This is a basic web application using the Model‑View‑Controller (MVC) patter
 * Building dynamic interfaces using Razor views
 * Implementing presentation logic, data validation, and database interaction
 * Familiarity with scaffolding tools, dependency injection, and C# project structure
+
+## How to run:
+
+1) Create a user on your MySQL database based on ``appsettings.json`` (or change user and password on the .json file as you like).
+
+2) Build the database using Entity Framework Tools using ``Update-Database`` on your PM Console.
